@@ -233,6 +233,7 @@ header {
 /* HIGHLIGHTS */
 #highlights {
   position: relative;
+  padding-bottom: 2vh;
 }
 
 /* .highlights__wrapper::before,
@@ -302,7 +303,7 @@ BOOKS
 */
 
 #books {
-  padding-top: 8vh;
+  padding-top: 6vh;
 }
 
 .books__container {

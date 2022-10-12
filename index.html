@@ -24,7 +24,7 @@
             <li><a href="#highlights" class="nav__link">About</a></li>
             <li><a href="#books" class="nav__link">Books</a></li>
             <li>
-              <a href="#" class="nav__link nav__link--primary">Contact</a>
+              <a class="nav__link nav__link--primary no-cursor">Contact</a>
             </li>
           </ul>
           <button class="btn__menu" onclick="openMenu() /*runs js*/ ">
@@ -51,7 +51,6 @@
             </li>
             <li class="menu__list-item">
               <a
-                href="#"
                 class="menu__link no-cursor"
                 onclick="closeMenu() /*runs js*/"
                 >Contact</a
@@ -63,12 +62,14 @@
       <header>
         <div class="header__container">
           <div class="header__description">
-            <h1>America's most award online library platform</h1>
+            <h1>America's most awarded online library platform</h1>
             <h2>
               Find your dream book with
               <span class="text--purple">Library</span>
             </h2>
-            <button class="btn">Browse Books Now</button>
+            <a href="#books">
+              <button class="btn">Browse Books Now</button>
+            </a>
           </div>
           <figure class="header__img--wrapper">
             <img src="./assets/Undraw_Books.svg" alt="" class="header__img" />
@@ -343,7 +344,9 @@
         <div class="container">
           <div class="row--col">
             <h2>Explore more <span class="text--purple">Books</span></h2>
-            <button class="btn">Browse Books</button>
+            <a href="#books">
+              <button class="btn">Browse Books</button>
+            </a>
           </div>
         </div>
       </section>
@@ -357,7 +360,7 @@
               <a href="#landing" class="footer__link">Home</a>
               <a href="#highlights" class="footer__link">About</a>
               <a href="#books" class="footer__link">Books</a>
-              <a href="" class="footer__link no-cursor">Contact</a>
+              <a class="footer__link no-cursor">Contact</a>
             </div>
             <p class="footer__copyright">Copyright &copy; 2021 Library</p>
           </div>
