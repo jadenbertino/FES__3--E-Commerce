@@ -39,17 +39,20 @@ button:active {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 3.5rem;
   color: #7342d6;
   margin-bottom: 24px;
   text-align: center;
 }
 
-h2 {
+h2, h3 {
   text-align: center;
-  font-size: 32px;
+  font-size: 2rem;
   margin-bottom: 32px;
-  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 img {
@@ -245,7 +248,7 @@ HIGHLIGHTS
 
 #highlights {
   position: relative;
-  padding-bottom: 2vh;
+  padding-bottom: 6vh;
 }
 
 /* .highlights__wrapper::before,
@@ -273,7 +276,9 @@ HIGHLIGHTS
 
 .highlights__wrapper {
   display: flex;
+  align-items: flex-start;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .highlight {
@@ -333,6 +338,7 @@ HIGHLIGHTS
 
 .highlight__para {
   max-width: 280px;
+  margin-bottom: 24px; 
 }
 
 /*
@@ -341,13 +347,14 @@ BOOKS
 
 */
 
-#books {
+/* #books {
   padding-top: 6vh;
-}
+} */
 
 .books__container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .book {
@@ -424,11 +431,50 @@ MOBILE OPS
 
 */ 
 
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0 24px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.33rem;
+  }
+
+  button {
+    font-size: 1.125rem;
+  }
+
+  .book {
+    width: 50%;
+  }
+}
+
+/* Smartphones */
 @media (max-width: 550px) {
   .btn__menu {
     display: block;
   }
   .nav__links {
     display: none;
+  }
+
+  #highlights {
+    padding-bottom: 0;
+  }
+  
+  .highlight {
+    width: 100%;
+  }
+
+  .highlight__para {
+    max-width: 250px;
   }
 }
