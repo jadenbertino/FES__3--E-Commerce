@@ -107,10 +107,10 @@ img {
 /* NAV */
 
 .nav__container {
-  height: 80px;
+  height: 100px;
   width: 100%;
   max-width: 1200px;
-  padding: 24px;
+  padding: 0 24px;
   margin: 0 auto;
 
   display: flex;
@@ -156,7 +156,7 @@ img {
 .menu__backdrop {
   position: absolute;
   background-color: #242424;
-  top: 0; 
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -189,7 +189,7 @@ img {
 }
 
 .menu__list-item {
- padding: 32px 0; 
+ padding: 32px 0;
 }
 
 .menu__link {
@@ -200,15 +200,15 @@ img {
 .btn__menu--close {
   position: absolute;
   right: 20px;
-  top: 10px; 
+  top: 10px;
   padding: 8px;
   color: white;
 }
 
 
-/* 
+/*
 
-HEADER 
+HEADER
 
 */
 
@@ -240,9 +240,9 @@ header {
   max-height: 50vh;
 }
 
-/* 
+/*
 
-HIGHLIGHTS 
+HIGHLIGHTS
 
 */
 
@@ -312,7 +312,7 @@ HIGHLIGHTS
   transform: scale(1.2);
 }
 
-/* 
+/*
 @keyframes wiggle {
   0% {
     transform: rotate(0);
@@ -338,12 +338,12 @@ HIGHLIGHTS
 
 .highlight__para {
   max-width: 280px;
-  margin-bottom: 24px; 
+  margin-bottom: 24px;
 }
 
 /*
 
-BOOKS 
+BOOKS
 
 */
 
@@ -425,11 +425,11 @@ FOOTER
   filter: grayscale(1) invert(1); /* turns to black then inverts colors */
 }
 
-/* 
+/*
 
 MOBILE OPS
 
-*/ 
+*/
 
 @media (max-width: 768px) {
   .header__container {
@@ -439,7 +439,7 @@ MOBILE OPS
   h1 {
     font-size: 2.5rem;
   }
-  
+
   h2 {
     font-size: 2rem;
   }
@@ -469,7 +469,7 @@ MOBILE OPS
   #highlights {
     padding-bottom: 0;
   }
-  
+
   .highlight {
     width: 100%;
   }
