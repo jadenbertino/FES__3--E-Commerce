@@ -1,4 +1,35 @@
+function renderBooks() {
+  const booksContainer = document.querySelector(".books__container");
+  let display = "";
+  for (let book of getBooks()) {
+    const stars = Math.floor(book.rating);
+    const halfStars = book.rating % 1 * 2;
+    if (book.salePrice ==  null) { book.salePrice = book.originalPrice}
+    display +=
+      `<div class="book">
+        <figure class="book__img--wrapper">
+          <img
+            src="${book.url}"
+            class="book__img"
+          />
+        </figure>
+        <div class="book__title">Cracking The Coding Interview</div>
+        <div class="book__ratings">`
+      + 
+         `<i class="fas fa-star"></i>`.repeat(stars)
+      +
+         `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars)
+      +
+        `</div>
+        <div class="book__price">
+          <span class="book__price--normal">$${book.originalPrice}</span> $${book.salePrice}
+        </div>
+      </div>`
+  }
+  booksContainer.innerHTML = display;
+}
 
+renderBooks()
 
 // FAKE DATA
 function getBooks() {
@@ -6,7 +37,7 @@ function getBooks() {
     {
       id: 1,
       title: "Crack the Coding Interview",
-                url: "assets/crack the coding interview.png",
+      url: "./assets/crack the coding interview.png",
       originalPrice: 49.95,
       salePrice: 14.95,
       rating: 4.5,
