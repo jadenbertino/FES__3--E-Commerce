@@ -16,7 +16,7 @@ let bookData = getBooks().map(book => {
 function ratingHTML(rating) {
   const stars = Math.floor(rating);
   const halfStars = rating % 1 * 2;
-  return `<i class="fas fa-star"></i>`.repeat(stars) + `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
+  return `<div class="book__ratings">` + `<i class="fas fa-star"></i>`.repeat(stars) + `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
 }
 
 function priceHTML(originalPrice, salePrice) {
@@ -35,10 +35,22 @@ function priceHTML(originalPrice, salePrice) {
     <div class="book__price">
       <span>$${originalPrice.toFixed(2)}</span>
     </div>
-    </div>
     </div>`
   }
   return pricingHTML
+}
+
+function informationHTML(imgSrc, bookTitle) {
+  let html = 
+    `<figure class="book__img--wrapper">
+      <img
+        src="${imgSrc}"
+        class="book__img"
+      />
+    </figure>
+    <div class="book__information">
+      <div class="book__title">${bookTitle}</div>`
+  return html
 }
 
 function displayBooks() {
@@ -47,21 +59,16 @@ function displayBooks() {
     let bookHTML = "";
 
     bookHTML +=
-      `<div class="book">
-        <figure class="book__img--wrapper">
-          <img
-            src="${book.url}"
-            class="book__img"
-          />
-        </figure>
-        <div class="book__information">
-        <div class="book__title">${book.title}</div>
-        <div class="book__ratings">`
+      `<div class="book">`
+      +
+      informationHTML(book.url, book.title)
       + 
       ratingHTML(book.rating)
       + 
       priceHTML(book.originalPrice, book.salePrice)
-      
+      +
+      `</div>`
+
     return bookHTML
   });
   booksContainer.innerHTML = booksHTML.join("");
