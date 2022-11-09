@@ -21,7 +21,7 @@ function renderBooks() {
             class="book__img"
           />
         </figure>
-        <div class="book__title">Cracking The Coding Interview</div>
+        <div class="book__title">${book.title}</div>
         <div class="book__ratings">`
       + 
          `<i class="fas fa-star"></i>`.repeat(stars)
