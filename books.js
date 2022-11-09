@@ -1,9 +1,18 @@
+const booksContainer = document.querySelector(".books__container");
+let bookData = getBooks();
+for (book of bookData) {
+  // get rid of any null sale  prices
+  if (!book.salePrice) {
+    book.salePrice = book.originalPrice;
+  }
+}
+
 function renderBooks() {
-  const booksContainer = document.querySelector(".books__container");
-  let books = getBooks().map(book => {
+  let booksHTML = bookData.map(book => {
     const stars = Math.floor(book.rating);
     const halfStars = book.rating % 1 * 2;
     let bookHTML = "";
+
     bookHTML +=
       `<div class="book">
         <figure class="book__img--wrapper">
@@ -17,39 +26,52 @@ function renderBooks() {
       + 
          `<i class="fas fa-star"></i>`.repeat(stars)
       +
-         `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars)
-    const price = book.salePrice != null ? 
+         `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
+    if (book.salePrice == book.originalPrice) {
+      bookHTML += 
+        `</div>
+        <div class="book__price">
+          <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $${book.salePrice.toFixed(2)}
+        </div>
+        </div>`
+    } else {
+      bookHTML +=
       `</div>
       <div class="book__price">
-        <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $${book.salePrice.toFixed(2)}
+        <span>$${book.originalPrice.toFixed(2)}</span>
       </div>
-    </div>` : 
-    `</div>
-    <div class="book__price">
-      <span>$${book.originalPrice.toFixed(2)}</span>
-    </div>
-    </div>`;
-    bookHTML += price;
+      </div>`
+    }
     return bookHTML
   });
-    booksContainer.innerHTML = books.join("");
+  booksContainer.innerHTML = booksHTML.join("");
 }
+
 renderBooks()
 
 // filter
 
-document.querySelector("#filter").addEventListener("change", (event) => {
-  const filterType = event.target.value
-  /*
-  LOW_TO_HIGH
-  HIGH_TO_LOW
-  HIGHEST_RATED
-  */
+function sortBooks() { 
+  document.querySelector("#filter").addEventListener("change", (event) => {
+    const filterType = event.target.value
+    /*
+    LOW_TO_HIGH
+    HIGH_TO_LOW
+    HIGHEST_RATED
+    */
+    
+    if (filterType == 'LOW_TO_HIGH') {
+      bookData.sort((a, b) => a.salePrice - b.salePrice)
+    } else if (filterType == 'HIGH_TO_LOW') {
+      bookData.sort((a, b) => b.salePrice - a.salePrice)
+    } else if (filterType == "HIGHEST_RATED") {
+      bookData.sort((a, b) => b.rating - a.rating)
+    }
+    renderBooks();
+  });
+}
 
-  if (filterType == 'LOW_TO_HIGH') {
-
-  }
-});
+sortBooks()
 
 // FAKE DATA
 function getBooks() {
