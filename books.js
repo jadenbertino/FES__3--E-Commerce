@@ -4,7 +4,7 @@ function renderBooks() {
   for (let book of getBooks()) {
     const stars = Math.floor(book.rating);
     const halfStars = book.rating % 1 * 2;
-    if (book.salePrice ==  null) { book.salePrice = book.originalPrice}
+    // if (book.salePrice ==  null) { book.salePrice = book.originalPrice}
     display +=
       `<div class="book">
         <figure class="book__img--wrapper">
@@ -19,12 +19,18 @@ function renderBooks() {
          `<i class="fas fa-star"></i>`.repeat(stars)
       +
          `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars)
-      +
-        `</div>
-        <div class="book__price">
-          <span class="book__price--normal">$${book.originalPrice}</span> $${book.salePrice}
-        </div>
-      </div>`
+    price = book.salePrice != null ? 
+      `</div>
+      <div class="book__price">
+        <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $${book.salePrice.toFixed(2)}
+      </div>
+    </div>` : 
+    `</div>
+    <div class="book__price">
+      <span>$${book.originalPrice.toFixed(2)}</span>
+    </div>
+    </div>`;
+    display += price;
   }
   booksContainer.innerHTML = display;
 }
