@@ -7,13 +7,41 @@ let bookData = getBooks().map(book => {
   return book
 });
 
+/*
+
+  DISPLAY BOOKS
+
+*/
+
 function ratingHTML(rating) {
   const stars = Math.floor(rating);
   const halfStars = rating % 1 * 2;
   return `<i class="fas fa-star"></i>`.repeat(stars) + `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
 }
 
-function renderBooks() {
+function priceHTML(originalPrice, salePrice) {
+  let pricingHTML = ""
+  if (salePrice !== originalPrice) {
+    pricingHTML += 
+      `</div>
+      <div class="book__price">
+        <span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}
+      </div>
+      </div>
+      </div>`
+  } else {
+    pricingHTML +=
+    `</div>
+    <div class="book__price">
+      <span>$${originalPrice.toFixed(2)}</span>
+    </div>
+    </div>
+    </div>`
+  }
+  return pricingHTML
+}
+
+function displayBooks() {
   let booksHTML = bookData.map(book => {
 
     let bookHTML = "";
@@ -31,30 +59,15 @@ function renderBooks() {
         <div class="book__ratings">`
       + 
       ratingHTML(book.rating)
-
-      if (book.salePrice == book.originalPrice) {
-      bookHTML += 
-        `</div>
-        <div class="book__price">
-          <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $${book.salePrice.toFixed(2)}
-        </div>
-        </div>
-        </div>`
-    } else {
-      bookHTML +=
-      `</div>
-      <div class="book__price">
-        <span>$${book.originalPrice.toFixed(2)}</span>
-      </div>
-      </div>
-      </div>`
-    }
+      + 
+      priceHTML(book.originalPrice, book.salePrice)
+      
     return bookHTML
   });
   booksContainer.innerHTML = booksHTML.join("");
 }
 
-renderBooks()
+displayBooks()
 
 // filter
 
@@ -74,7 +87,7 @@ function sortBooks() {
     } else if (filterType == "HIGHEST_RATED") {
       bookData.sort((a, b) => b.rating - a.rating)
     }
-    renderBooks();
+    displayBooks();
   });
 }
 
