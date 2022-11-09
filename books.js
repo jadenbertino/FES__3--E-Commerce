@@ -13,6 +13,19 @@ let bookData = getBooks().map(book => {
 
 */
 
+function informationHTML(imgSrc, bookTitle) {
+  let html = 
+    `<figure class="book__img--wrapper">
+      <img
+        src="${imgSrc}"
+        class="book__img"
+      />
+    </figure>
+    <div class="book__information">
+      <div class="book__title">${bookTitle}</div>`
+  return html
+}
+
 function ratingHTML(rating) {
   const stars = Math.floor(rating);
   const halfStars = rating % 1 * 2;
@@ -27,7 +40,6 @@ function priceHTML(originalPrice, salePrice) {
       <div class="book__price">
         <span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}
       </div>
-      </div>
       </div>`
   } else {
     pricingHTML +=
@@ -38,19 +50,6 @@ function priceHTML(originalPrice, salePrice) {
     </div>`
   }
   return pricingHTML
-}
-
-function informationHTML(imgSrc, bookTitle) {
-  let html = 
-    `<figure class="book__img--wrapper">
-      <img
-        src="${imgSrc}"
-        class="book__img"
-      />
-    </figure>
-    <div class="book__information">
-      <div class="book__title">${bookTitle}</div>`
-  return html
 }
 
 function displayBooks() {
@@ -76,7 +75,11 @@ function displayBooks() {
 
 displayBooks()
 
-// filter
+/*
+
+  FILTER 
+
+*/
 
 function sortBooks() { 
   document.querySelector("#filter").addEventListener("change", (event) => {
@@ -100,7 +103,12 @@ function sortBooks() {
 
 sortBooks()
 
-// FAKE DATA
+/*
+
+  FAKE DATA
+  
+*/
+
 function getBooks() {
   return [
     {
