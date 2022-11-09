@@ -14,53 +14,57 @@ let bookData = getBooks().map(book => {
 */
 
 function informationHTML(imgSrc, bookTitle) {
-  let html = 
-    `<figure class="book__img--wrapper">
-      <img
-        src="${imgSrc}"
-        class="book__img"
-      />
-    </figure>
-    <div class="book__information">
-      <div class="book__title">${bookTitle}</div>`
+  const html = 
+  `<div class="book">
+    <figure class="book__img--wrapper">
+        <img
+          src="${imgSrc}"
+          class="book__img"
+        />
+      </figure>
+      <div class="book__information">
+        <div class="book__title">${bookTitle}</div>`
   return html
 }
 
 function ratingHTML(rating) {
   const stars = Math.floor(rating);
   const halfStars = rating % 1 * 2;
-  return `<div class="book__ratings">` + `<i class="fas fa-star"></i>`.repeat(stars) + `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
+  const html =
+    `<div class="book__ratings">`
+    +
+    `<i class="fas fa-star"></i>`.repeat(stars)
+    +
+    `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars)
+    +
+    `</div>`
+  return html
 }
 
 function priceHTML(originalPrice, salePrice) {
-  let priceLine = originalPrice == salePrice ? 
+  const priceLine = originalPrice == salePrice ? 
     `<span>$${originalPrice.toFixed(2)}</span>` :
     `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}`
-  let pricingHTML = 
-  `</div>
-   <div class="book__price">
-   ${priceLine}
-   </div>
-   </div>`
-  return pricingHTML
+
+  const html = 
+    `<div class="book__price">
+      ${priceLine}
+    </div>
+    </div>
+    </div>`
+  return html
 }
 
 function displayBooks() {
   let booksHTML = bookData.map(book => {
 
-    let bookHTML = "";
-
-    bookHTML +=
-      `<div class="book">`
-      +
+    const bookHTML =
       informationHTML(book.url, book.title)
       + 
       ratingHTML(book.rating)
       + 
       priceHTML(book.originalPrice, book.salePrice)
-      +
-      `</div>`
-
+      
     return bookHTML
   });
   booksContainer.innerHTML = booksHTML.join("");
