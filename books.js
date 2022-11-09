@@ -21,6 +21,7 @@ function renderBooks() {
             class="book__img"
           />
         </figure>
+        <div class="book__information">
         <div class="book__title">${book.title}</div>
         <div class="book__ratings">`
       + 
@@ -33,12 +34,14 @@ function renderBooks() {
         <div class="book__price">
           <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $${book.salePrice.toFixed(2)}
         </div>
+        </div>
         </div>`
     } else {
       bookHTML +=
       `</div>
       <div class="book__price">
         <span>$${book.originalPrice.toFixed(2)}</span>
+      </div>
       </div>
       </div>`
     }
