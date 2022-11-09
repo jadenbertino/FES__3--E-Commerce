@@ -7,10 +7,15 @@ for (book of bookData) {
   }
 }
 
+function ratingHTML(rating) {
+  const stars = Math.floor(rating);
+  const halfStars = rating % 1 * 2;
+  return `<i class="fas fa-star"></i>`.repeat(stars) + `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
+}
+
 function renderBooks() {
   let booksHTML = bookData.map(book => {
-    const stars = Math.floor(book.rating);
-    const halfStars = book.rating % 1 * 2;
+
     let bookHTML = "";
 
     bookHTML +=
@@ -25,9 +30,7 @@ function renderBooks() {
         <div class="book__title">${book.title}</div>
         <div class="book__ratings">`
       + 
-         `<i class="fas fa-star"></i>`.repeat(stars)
-      +
-         `<i class="fas fa-star-half-alt"></i>`.repeat(halfStars);
+      ratingHTML(book.rating)
     if (book.salePrice == book.originalPrice) {
       bookHTML += 
         `</div>
