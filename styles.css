@@ -419,8 +419,6 @@ FOOTER
 
 footer {
   background-color: #242424;
-  position: sticky;
-  bottom: 0;
 }
 
 .footer__logo,
