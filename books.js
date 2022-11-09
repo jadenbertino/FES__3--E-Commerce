@@ -33,22 +33,15 @@ function ratingHTML(rating) {
 }
 
 function priceHTML(originalPrice, salePrice) {
-  let pricingHTML = ""
-  if (salePrice !== originalPrice) {
-    pricingHTML += 
-      `</div>
-      <div class="book__price">
-        <span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}
-      </div>
-      </div>`
-  } else {
-    pricingHTML +=
-    `</div>
-    <div class="book__price">
-      <span>$${originalPrice.toFixed(2)}</span>
-    </div>
-    </div>`
-  }
+  let priceLine = originalPrice == salePrice ? 
+    `<span>$${originalPrice.toFixed(2)}</span>` :
+    `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}`
+  let pricingHTML = 
+  `</div>
+   <div class="book__price">
+   ${priceLine}
+   </div>
+   </div>`
   return pricingHTML
 }
 
