@@ -1,11 +1,6 @@
 const booksContainer = document.querySelector(".books__container");
 
-let bookData = getBooks().map(book => {
-  if (!book.salePrice) {
-    book.salePrice = book.originalPrice;
-  }
-  return book
-});
+let bookData = getBooks();
 
 /*
 
@@ -42,7 +37,7 @@ function ratingHTML(rating) {
 }
 
 function priceHTML(originalPrice, salePrice) {
-  const priceLine = originalPrice == salePrice ? 
+  const priceLine = !salePrice ? // salePrice is null
     `<span>$${originalPrice.toFixed(2)}</span>` :
     `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span> $${salePrice.toFixed(2)}`
 
@@ -64,7 +59,7 @@ function displayBooks() {
       ratingHTML(book.rating)
       + 
       priceHTML(book.originalPrice, book.salePrice)
-      
+
     return bookHTML
   });
   booksContainer.innerHTML = booksHTML.join("");
@@ -88,9 +83,13 @@ function sortBooks() {
     */
     
     if (filterType == 'LOW_TO_HIGH') {
-      bookData.sort((a, b) => a.salePrice - b.salePrice)
+      /*
+      or || operator returns expr1 if it can be converted to true, otherwise it returns expr2
+      used the or operator below in case the salePrice is null, in which case it uses the original price
+      */
+      bookData.sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice))
     } else if (filterType == 'HIGH_TO_LOW') {
-      bookData.sort((a, b) => b.salePrice - a.salePrice)
+      bookData.sort((a, b) => (b.salePrice || b.originalPrice) - (a.salePrice || a.originalPrice))
     } else if (filterType == "HIGHEST_RATED") {
       bookData.sort((a, b) => b.rating - a.rating)
     }
