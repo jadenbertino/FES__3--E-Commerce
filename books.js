@@ -84,8 +84,11 @@ function sortBooks() {
     
     if (filterType == 'LOW_TO_HIGH') {
       /*
-      or || operator returns expr1 if it can be converted to true, otherwise it returns expr2
-      used the or operator below in case the salePrice is null, in which case it uses the original price
+      OR Notes
+      (expr1 || expr2)
+      returns expr1 if it can be converted to true, otherwise it returns expr2
+      used it below in case the salePrice is null, in which case it uses the original price
+      salePrice must come first though
       */
       bookData.sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice))
     } else if (filterType == 'HIGH_TO_LOW') {
