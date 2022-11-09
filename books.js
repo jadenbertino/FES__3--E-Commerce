@@ -1,11 +1,11 @@
 const booksContainer = document.querySelector(".books__container");
-let bookData = getBooks();
-for (book of bookData) {
-  // get rid of any null sale  prices
+
+let bookData = getBooks().map(book => {
   if (!book.salePrice) {
     book.salePrice = book.originalPrice;
   }
-}
+  return book
+});
 
 function ratingHTML(rating) {
   const stars = Math.floor(rating);
@@ -31,7 +31,8 @@ function renderBooks() {
         <div class="book__ratings">`
       + 
       ratingHTML(book.rating)
-    if (book.salePrice == book.originalPrice) {
+
+      if (book.salePrice == book.originalPrice) {
       bookHTML += 
         `</div>
         <div class="book__price">
