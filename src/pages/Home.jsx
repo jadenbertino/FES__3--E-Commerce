@@ -7,7 +7,7 @@ export default function Home() {
       <nav>
         <div class="nav__container">
           <figure class="nav__logo">
-            <img src="./assets/Library.svg" alt="" />
+            <img src={require("assets/Library.svg")} alt="Logo" />
           </figure>
           <ul class="nav__links">
             <li><a href="#highlights" class="nav__link">About</a></li>
@@ -61,7 +61,7 @@ export default function Home() {
             </a>
           </div>
           <figure class="header__img--wrapper">
-            <img src="./assets/Undraw_Books.svg" alt="" class="header__img" />
+            <img src="assets/Undraw_Books.svg" alt="Graphic" class="header__img" />
           </figure>
         </div>
       </header>
@@ -113,7 +113,7 @@ export default function Home() {
               <div class="book">
                 <figure class="book__img--wrapper">
                   <img
-                    src="./assets/crack the coding interview.png"
+                    src="../assets/crack the coding interview.png"
                     alt=""
                     class="book__img"
                   />
@@ -133,7 +133,7 @@ export default function Home() {
               <div class="book">
                 <figure class="book__img--wrapper">
                   <img
-                    src="./assets/atomic habits.jpg"
+                    src="../assets/atomic habits.jpg"
                     alt=""
                     class="book__img"
                   />
@@ -153,7 +153,7 @@ export default function Home() {
               <div class="book">
                 <figure class="book__img--wrapper">
                   <img
-                    src="./assets/david goggins.jpeg"
+                    src="../assets/david goggins.jpeg"
                     alt=""
                     class="book__img"
                   />
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/deep work.jpeg" alt="" class="book__img" />
+                  <img src="../assets/deep work.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Deep Work</div>
                 <div class="book__ratings">
@@ -199,7 +199,7 @@ export default function Home() {
             <div class="books__container">
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-1.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-1.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">The 10X Rule</div>
                 <div class="book__ratings">
@@ -215,7 +215,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-2.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-2.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Be Obsessed Or Be Average</div>
                 <div class="book__ratings">
@@ -231,7 +231,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-3.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-3.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Rich Dad Poor Dad</div>
                 <div class="book__ratings">
@@ -247,7 +247,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-4.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-4.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Cashflow Quadrant</div>
                 <div class="book__ratings">
@@ -263,7 +263,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-5.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-5.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">48 Laws of Power</div>
                 <div class="book__ratings">
@@ -279,7 +279,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-6.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-6.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">The 5 Second Rule</div>
                 <div class="book__ratings">
@@ -295,7 +295,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-7.jpg" alt="" class="book__img" />
+                  <img src="../assets/book-7.jpg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Your Next Five Moves</div>
                 <div class="book__ratings">
@@ -311,7 +311,7 @@ export default function Home() {
               </div>
               <div class="book">
                 <figure class="book__img--wrapper">
-                  <img src="./assets/book-8.jpeg" alt="" class="book__img" />
+                  <img src="../assets/book-8.jpeg" alt="" class="book__img" />
                 </figure>
                 <div class="book__title">Mastery</div>
                 <div class="book__ratings">
@@ -343,7 +343,7 @@ export default function Home() {
         <div class="container">
           <div class="row--col">
             <figure class="footer__logo--wrapper">
-              <img src="./assets/Library.svg" alt="" class="footer__logo" />
+              <img src="../assets/Library.svg" alt="" class="footer__logo" />
             </figure>
             <div class="footer__links">
               <a href="#landing" class="footer__link">Home</a>
