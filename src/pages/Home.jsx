@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
-    <link rel="stylesheet" href="Index.css" />
-    <link rel="icon" type="image/png" href="./assets/favicon.png">
-    <script
-      src="https://kit.fontawesome.com/c8e4d183c2.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="index.js"></script>
-  </head>
+import './Home.css'
 
-  <body>
-    <section id="landing">
+export default function Home() {
+  return (
+  <>
+  <section id="landing">
       <nav>
         <div class="nav__container">
           <figure class="nav__logo">
@@ -368,5 +356,6 @@
         </div>
       </section>
     </main>
-  </body>
-</html>
+  </>
+  )
+}
